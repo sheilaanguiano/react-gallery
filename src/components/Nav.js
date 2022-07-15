@@ -4,11 +4,11 @@ import React from 'react';
 
 const Nav = () => {
     return (
-        <nav class="main-nav">
+        <nav className="main-nav">
             <ul>
-                <li><a href='www.google.com'>Cats</a></li>
-                <li><a href='www.google.com'>Dogs</a></li>
-                <li><a href='www.google.com'>Computers</a></li>
+                <li><a href='www.google.com'>Sculpture</a></li>
+                <li><a href='www.google.com'>Architecture</a></li>
+                <li><a href='www.google.com'>Painting</a></li>
             </ul>
       </nav>
     );
