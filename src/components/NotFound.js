@@ -1,6 +1,6 @@
 import React from 'react';
 
-//Stateles Component
+//Stateless Component
 
 const NotFound = () => {
     return (

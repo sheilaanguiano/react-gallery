@@ -1,12 +1,11 @@
 import React from 'react';
 
-//Stateles Component
+//Stateless Component
 
 const Photo = props => {
     return (
         <li>
             <img src={props.url} alt="" />
-
         </li>
     );
 }

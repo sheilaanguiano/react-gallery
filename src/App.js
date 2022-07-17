@@ -30,6 +30,7 @@ class App extends Component {
     }
   }
 
+  //Loads all the button queries to push the correct state when clicking on a button
   componentDidMount(){  
     this.performSearch('sculpture');
     this.performSearch('architecture');
@@ -37,6 +38,11 @@ class App extends Component {
     this.performSearch();
   }
   
+  /**
+  * [Performs a search or loads a set of 24 photos by default when the component is Mounted] 
+  * @param {String} query - A string containing the term to search
+  */
+
   performSearch = (query = 'pomeranians') => {
     fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => response.json())
