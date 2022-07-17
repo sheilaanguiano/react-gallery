@@ -72,7 +72,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="container">
-          <h1>Welcome to Photo App</h1>, 
+          <h1>Sheila's Marvelous Photo App</h1>, 
 
           <SearchForm onSearch={this.performSearch} />,
           
