@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {
 	BrowserRouter,
-  Routes,
+  Switch,
 	Route
 } from  'react-router-dom';
 
@@ -12,6 +12,7 @@ import apiKey from './config';
 import Nav from './components/Nav';
 import PhotoList from './components/PhotoList';
 import SearchForm from './components/SearchForm';
+import NotFound from './components/NotFound';
 
 
 
@@ -69,16 +70,20 @@ class App extends Component {
 
           <SearchForm onSearch={this.performSearch} />,
           
-          <Nav />,
-          <Routes>
-            <Route  exact path='/' element={<PhotoList data={this.state.photos} />} />
-            <Route  exact path='/sculpture' element={<PhotoList data={this.state.sculpture} />} />
-            <Route  exact path='/architecture' element={<PhotoList data={this.state.architecture} />} />
-            <Route  exact path='/painting' element={<PhotoList data={this.state.painting} />} />
-            <Route  path='/search/:query' element={<PhotoList data={this.state.photos} query={this.state.query} />} />
-
-                
-          </Routes>
+          <Nav />
+          {
+            (this.state.loading) 
+              ? <h2>Loading...</h2>
+              :
+              <Switch>
+                <Route  exact path='/' render={() => <PhotoList data={this.state.photos} />} />
+                <Route  exact path='/sculpture' render={() => <PhotoList data={this.state.sculpture} />} />
+                <Route  exact path='/architecture' render={()=><PhotoList data={this.state.architecture} />} />
+                <Route  exact path='/painting' render={() => <PhotoList data={this.state.painting} />} />
+                <Route  path='/search/:query' render={() => <PhotoList data={this.state.photos} query={this.state.query} />} />
+                <Route path='*' render={()=> <NotFound />} />
+              </Switch>  
+          }
           
         </div>
       </BrowserRouter>
